@@ -1,4 +1,4 @@
-# quiz
+# randomness_die
 
 A new Flutter project.
 
