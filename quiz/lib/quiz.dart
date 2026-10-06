@@ -14,6 +14,9 @@ class Quiz extends StatefulWidget {
 class _QuizState extends State<Quiz> {
   Widget? activeScreen;
 
+  // variant - ternary expression
+  // String activeScreen = 'start-screen';
+
   @override
   void initState() {
     super.initState();
@@ -24,6 +27,9 @@ class _QuizState extends State<Quiz> {
   void startQuiz() {
     setState(() {
       activeScreen = QuestionsScreen();
+
+      // variant - ternary expression
+      // activeScreen = 'question-screen';
     });
   }
 
@@ -41,6 +47,11 @@ class _QuizState extends State<Quiz> {
             ),
           ),
           child: activeScreen,
+          /*
+          // variant - ternary expression
+           child: activeScreen == 'start-screen'
+              ? StartScreen(startQuiz)
+              : QuestionsScreen(), */
         ),
       ),
     );
