@@ -12,29 +12,40 @@ class Quiz extends StatefulWidget {
 }
 
 class _QuizState extends State<Quiz> {
-  Widget? activeScreen;
+  // variant with life - cycle
+  // Widget? activeScreen;
 
-  // variant - ternary expression
-  // String activeScreen = 'start-screen';
+  // variant - ternary expression or if...else
+  String activeScreen = 'start-screen';
 
-  @override
-  void initState() {
-    super.initState();
+  // variant with life - cycle
+  // @override
+  // void initState() {
+  //   super.initState();
 
-    activeScreen = StartScreen(startQuiz);
-  }
+  //   activeScreen = StartScreen(startQuiz);
+  // }
 
+  // variant - if...else
   void startQuiz() {
     setState(() {
-      activeScreen = QuestionsScreen();
+      // variant - with life - cycle
+      // activeScreen = QuestionsScreen();
 
-      // variant - ternary expression
-      // activeScreen = 'question-screen';
+      // variant - ternary expression or if...else
+      activeScreen = 'questions-screen';
     });
   }
 
   @override
   Widget build(context) {
+    // variant - if...else
+    Widget screenWidget = StartScreen(startQuiz);
+
+    if (activeScreen == 'questions-screen') {
+      screenWidget = QuestionsScreen();
+    }
+
     return MaterialApp(
       home: Scaffold(
         body: Container(
@@ -46,7 +57,9 @@ class _QuizState extends State<Quiz> {
               ],
             ),
           ),
-          child: activeScreen,
+          child: screenWidget,
+          // variant with life - cycle
+          // child: activeScreen,
           /*
           // variant - ternary expression
            child: activeScreen == 'start-screen'
