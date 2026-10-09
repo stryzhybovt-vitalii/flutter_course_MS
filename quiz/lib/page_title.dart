@@ -14,6 +14,7 @@ class PageTitle extends StatelessWidget {
         color: Colors.white,
         fontWeight: FontWeight(600),
       ),
+      textAlign: TextAlign.center,
     );
   }
 }
