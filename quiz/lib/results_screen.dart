@@ -1,10 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:quiz/page_title.dart';
+import 'package:quiz/data/questions.dart';
 
 class ResultsScreen extends StatelessWidget {
   const ResultsScreen({required this.listAnswers, super.key});
 
   final List<String> listAnswers;
+
+  List<Map<String, Object>> getSummaryData() {
+    final List<Map<String, Object>> summary = [];
+
+    for (int i = 0; i < listAnswers.length; i++) {
+      summary.add({
+        'question_index': questions[i],
+        'question_text': questions[i].question,
+        'correct_answer': questions[i].answers[0],
+        'user_answer': listAnswers[i],
+      });
+    }
+
+    return summary;
+  }
 
   @override
   Widget build(BuildContext context) {
