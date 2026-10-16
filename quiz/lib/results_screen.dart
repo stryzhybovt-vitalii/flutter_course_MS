@@ -13,7 +13,7 @@ class ResultsScreen extends StatelessWidget {
 
     for (int i = 0; i < listAnswers.length; i++) {
       summary.add({
-        'question_index': questions[i],
+        'question_index': i,
         'question_text': questions[i].question,
         'correct_answer': questions[i].answers[0],
         'user_answer': listAnswers[i],

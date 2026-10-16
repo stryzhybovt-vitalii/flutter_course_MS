@@ -37,7 +37,7 @@ class _QuizState extends State<Quiz> {
   // void initState() {
   //   super.initState();
 
-  //   activeScreen = StartScreen(startQuiz);
+  //   activeScreen = StartScreen(st artQuiz);
   // }
 
   // variant - if...else
