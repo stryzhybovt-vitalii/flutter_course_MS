@@ -51,6 +51,14 @@ class _QuizState extends State<Quiz> {
     });
   }
 
+  void restartQuiz() {
+    listAnswers.clear();
+
+    setState(() {
+      activeScreen = 'start-screen';
+    });
+  }
+
   @override
   Widget build(context) {
     // variant - if...else
@@ -63,7 +71,10 @@ class _QuizState extends State<Quiz> {
     }
 
     if (activeScreen == 'results-screen') {
-      screenWidget = ResultsScreen(listAnswers: listAnswers);
+      screenWidget = ResultsScreen(
+        listAnswers: listAnswers,
+        restartQuiz: restartQuiz,
+      );
     }
 
     return MaterialApp(
