@@ -25,6 +25,12 @@ class ResultsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final dataSummary = getSummaryData();
+    final numQuestionsLength = questions.length;
+    final numAnswersLength = dataSummary.where((data) {
+      return data['user_answer'] == data['correct_answer'];
+    }).length;
+
     return SizedBox(
       width: double.infinity,
       child: Container(
@@ -33,11 +39,14 @@ class ResultsScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            PageTitle(text: 'You asnwered X out of Y cuestions correctly!'),
+            PageTitle(
+              text:
+                  'You asnwered $numAnswersLength out of $numQuestionsLength cuestions correctly!',
+            ),
             SizedBox(
               height: 30,
             ),
-            QuestionsSummary(getSummaryData()),
+            QuestionsSummary(dataSummary),
             TextButton(onPressed: () {}, child: Text('Restart Quiz')),
           ],
         ),
